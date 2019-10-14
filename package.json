@@ -1,0 +1,30 @@
+{
+  "name": "javascript_project",
+  "version": "1.0.0",
+  "description": "Project Title sonaroptico",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dschear94/javascript_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dschear94/javascript_project/issues"
+  },
+  "homepage": "https://github.com/dschear94/javascript_project#readme",
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "lodash": "^4.17.15",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
+  }
+}
