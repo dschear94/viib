@@ -36,6 +36,17 @@ Webpack + Babel
 
 
 Implementation Timeline
-    * Most important category
-    * Daily breakdown
-    * Aim to be done by Friday
+
+Tuesday
+setup webpack & project
+prelim research focused on Web Audio API and D3
+
+Wednesday
+continue research re Web Audio API and using D3 for visuals
+select layout and styling
+
+Thursday
+clean up project build
+
+Friday
+add additional functionality and customization
