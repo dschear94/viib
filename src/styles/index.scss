@@ -1,0 +1,31 @@
+.file-input {
+  display: none; 
+}
+  
+.main-title {
+  display: block;
+  width: 100%;
+  top: 0;
+  background: transparent;
+  text-align: center; 
+  background: #ff02f2;
+  height: 48px;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 48px;
+}
+
+.visualizer-selector {
+  float: right;
+}
+
+.app {
+  background: black;
+  height: 100%;
+  width: 100%;
+  font: "comic-sans";
+  font-size: 14;
+  color: aqua;
+}
+
+@import "./reset.scss";

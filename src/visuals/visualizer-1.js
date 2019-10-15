@@ -1,6 +1,4 @@
-import { returnAnimationStatus } from "../util";
-
-export const visualizer = function (analyser, colors) {
+export const visualizer1 = function (analyser, colors) {
 
     analyser.fftSize = 256;
 
@@ -20,7 +18,6 @@ export const visualizer = function (analyser, colors) {
     }
 
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
     const colorScale = d3.scaleSequential(colors)
         .domain([1, 255]);
 
@@ -34,15 +31,9 @@ export const visualizer = function (analyser, colors) {
         .attr("width", ((w / dataArray.length) * 0.8))
         .attr("x", function (d, i) { return (((w / dataArray.length) * i) + ((w / dataArray.length) * 0.1)); });
 
-    // let currentCount = 0;
-    // currentCount += returnAnimationStatus();
 
     function renderFrame() {
-
-        // if (currentCount === returnAnimationStatus()) {
-        //     debugger
-        window.requestAnimationFrame(renderFrame);
-        // }
+        requestAnimationFrame(renderFrame);
         analyser.getByteFrequencyData(dataArray);
 
         svg.selectAll('rect')

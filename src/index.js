@@ -1,19 +1,24 @@
-import { visualizer } from "./visuals/visualizer";
+import "./styles/index.scss";
+
+// import { visualizer1 } from "./visuals/visualizer-1";
+import { visualizer1 } from "./visuals/visualizer-2";
 
 
 window.onload = function () {
-    let setup = false;
+// create initial AudioContext
+    let audioCtx = window.AudioContext || window.webkitAudioContext;
+    let contextCreated = false;
+    let analyser;
+
+
     const currentTrack = document.getElementById("audio");
 
     document.getElementById("file-input-label").onclick = () => {
-
-        // if (!contextCreated) {
-        //     contextCreated = true;
-        // debugger
-
-
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const analyser = audioCtx.createAnalyser();
+        if (!contextCreated) {
+            contextCreated = true;
+            // context = new AudioContext();
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioCtx.createAnalyser();
             const source = audioCtx.createMediaElementSource(currentTrack);
             source.connect(analyser);
             analyser.fftSize = 2048;
@@ -27,7 +32,8 @@ window.onload = function () {
             analyser.maxDecibels = -25;
             analyser.smoothingTimeConstant = 0.8;
             source.connect(audioCtx.destination);
-            barGraph(analyser, d3.interpolateSinebow)
+            visualizer1(analyser, d3.interpolateBuPu);
+        }
     };
 
     document.getElementById("file-input").onchange = function () {
