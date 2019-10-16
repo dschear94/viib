@@ -1,7 +1,7 @@
 import "./styles/index.scss";
 
 // import { visualizer1 } from "./visuals/visualizer-1";
-import { visualizer1 } from "./visuals/visualizer-2";
+import { visualizer1 } from "./visuals/visualizer-3";
 
 
 window.onload = function () {
@@ -10,10 +10,20 @@ window.onload = function () {
     let contextCreated = false;
     let analyser;
 
-
     const currentTrack = document.getElementById("audio");
 
-    document.getElementById("file-input-label").onclick = () => {
+
+    const playPause = () => {
+        if (currentTrack.paused) {
+            currentTrack.play(); 
+            document.getElementById("play-pause").innerHTML = "||";
+        } else {
+            currentTrack.pause();
+            document.getElementById("play-pause").innerHTML = ">";
+        }
+    };
+
+    document.getElementById("file-input").onclick = () => {
         if (!contextCreated) {
             contextCreated = true;
             // context = new AudioContext();
@@ -26,7 +36,7 @@ window.onload = function () {
             const dataArray = new Uint8Array(bufferLength);
             analyser.getByteTimeDomainData(dataArray);
             document.getElementById("play-pause").onclick = () => {
-                currentTrack.play();
+                playPause();
             }
             analyser.minDecibels = -105;
             analyser.maxDecibels = -25;
@@ -44,5 +54,40 @@ window.onload = function () {
             currentTrack.load();
         }
     };
+
+    let timeout;
+
+    document.onmousemove = () => {
+        if (!currentTrack.paused) {
+            showDisplay();
+            clearTimeout(timeout);
+            this.setTimeout(() => hideDisplay(), 5000);
+        }
+    }
+    document.onclick = () => {
+        if (!currentTrack.paused) {
+            showDisplay();
+            clearTimeout(timeout);
+            this.setTimeout(() => hideDisplay(), 5000);
+        }
+    }
+
+    const hideDisplay = () => {
+        if (!currentTrack.paused) {
+            document.getElementById("main-title").style.opacity = 0;
+            document.getElementById("play-pause").style.opacity = 0;
+            document.getElementById("file-input-show").style.opacity = 0;
+        }
+    }
+
+    const showDisplay = () => {
+        document.getElementById("main-title").style.opacity = "";
+        document.getElementById("play-pause").style.opacity = "";
+        document.getElementById("file-input-show").style.opacity = "";
+    }
+
+    currentTrack.onpause = () => {
+        showDisplay();
+    }
 }
 

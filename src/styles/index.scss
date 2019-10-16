@@ -1,6 +1,16 @@
 .file-input {
   display: none; 
 }
+
+.file-input-show {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: block;
+  text-align: center; 
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
   
 .main-title {
   display: block;
@@ -13,6 +23,8 @@
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 48px;
+  position: absolute;
+  transition: opacity 0.5s;
 }
 
 .visualizer-selector {
@@ -26,6 +38,17 @@
   font: "comic-sans";
   font-size: 14;
   color: aqua;
+}
+
+.play-pause {
+  top: 50%;
+  position: absolute;
+  font-size: 100px;
+  text-align: center;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 1s;
 }
 
 @import "./reset.scss";
