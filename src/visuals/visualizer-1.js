@@ -1,6 +1,6 @@
 export const visualizer1 = function (analyser, colors) {
 
-    analyser.fftSize = 256;
+    analyser.fftSize = 128;
 
     const h = window.innerHeight,
         w = window.innerWidth;

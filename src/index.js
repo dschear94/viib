@@ -1,7 +1,7 @@
 import "./styles/index.scss";
 
-// import { visualizer1 } from "./visuals/visualizer-1";
-import { visualizer1 } from "./visuals/visualizer-3";
+import { visualizer1 } from "./visuals/visualizer-1";
+// import { visualizer1 } from "./visuals/visualizer-3";
 
 
 window.onload = function () {
