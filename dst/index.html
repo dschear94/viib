@@ -20,24 +20,52 @@
 
     <div class="file-input">
         <input type="file" id="file-input" accept="audio/*, .mp3" />
-    </div>    
-
-
+    </div>
 
     <div
+        id="instruct"
+        class="instruct">
+        click screen to toggle navigation
+    </div>
+
+    <div
+        id="nowPlaying"
+        class="nowPlaying">
+    </div>
+
+    <div
+        id="progress-bar-container"
+        class="progress-bar-container">
+        <span
+            class="start">start</span>
+            <div
+            id="progress-bar"
+            class="progress-bar">
+                <div id="progress" class="progress">
+                </div>
+                <div id="progress-left" class="progress-left">
+                </div>
+            </div>
+        <span
+            class="end">end</span>
+    </div>
+
+    <div
+        id="play-pause-container"
+        class="play-pause-container">
+        <span
         id="play-pause"
         class="play-pause">
-        >
+        ></span>
     </div>
 
     <div
         id="modal-over-container"
         class="modal-over-container">
         <div
+            id="modal-over-left"
             class="modal-over-left">
-                <label id="file-input-show" for="file-input" class="file-input-show">
                     select audio
-                </label>
         </div>
         <div
             class="modal-over-right">
@@ -48,7 +76,7 @@
     <div
         id="bottom-bar"
         class="bottom-bar">
-        visual-audio project designed and developed by <span 
+        a visual-audio experience designed and developed by <span 
         class="name-link"
         id="name-link">derek schear</span>
     </div>

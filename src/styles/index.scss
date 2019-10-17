@@ -2,13 +2,7 @@
   display: none; 
 }
 
-.file-input-show {
-  cursor: pointer;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  transition: opacity 0.5s;
-  margin: auto;
-}
+
   
 .main-title {
   display: block;
@@ -22,8 +16,13 @@
   font-size: 48px;
   position: absolute;
   transition: opacity 0.5s;
+  transition: color 1s;
 }
   
+.main-title:hover {
+  color: aqua;
+}
+
 .bottom-bar {
   display: inline-block;
   width: 100%;
@@ -31,11 +30,11 @@
   text-align: center;
   vertical-align: middle;
   background: aqua;
-  height: 48px;
+  height: 32px;
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 24px;
-  line-height: 48px;
+  font-size: 18px;
+  line-height: 32px;
   position: absolute;
   transition: opacity 0.5s;
 }
@@ -44,11 +43,11 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  bottom: 48px;
+  bottom: 40px;
   background: transparent;
   text-align: center;
   vertical-align: center;
-  height: 24px;
+  height: 32px;
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 24px;
@@ -61,15 +60,18 @@
   background: #ff02f2;
   border-radius: 5px;
   width: 25%;
-  height: 19px;
+  height: 24px;
   margin: auto;
   vertical-align: middle;
-  line-height: 12px;
-  transition: width 1s;
+  font-size: 18px;
+  line-height: 24px;
+  transition: width 1s, color 1s;
 }
 
 .modal-over-left:hover {
-  width: 40%
+  width: 40%;
+  color: aqua;
+  cursor: pointer;
 }
 
 .modal-over-right {
@@ -78,19 +80,21 @@
   border-radius: 5px;
   width: 25%;
   margin: auto;
-  height: 19px;
+  height: 24px;
+  line-height: 24px;
   font-size: 18px;
   cursor: pointer;
-  transition: width 1s;
+  transition: width 1s, color 1s, height 1s;
 }
 
 
 .modal-over-right:hover {
-  width: 40%
+  width: 40%;
+  color: aqua;
 }
 
 .name-link {
-  font-size: 28px;
+  font-size: 20px;
   transition: color 1s;
 }
 
@@ -105,28 +109,92 @@
 
 .app {
   background: black;
-  height: 100%;
-  width: 100%;
-  font: "comic-sans";
-  font-size: 14;
   color: aqua;
 }
 
-.play-pause {
+.play-pause-container {
   top: 50%;
   position: absolute;
   font-size: 100px;
   text-align: center;
-  display: block;
   width: 100%;
-  cursor: pointer;
-  transition: opacity 1s;
+  transition: color 1s, opacity 1s;
+  color: aqua;
+}
+
+.play-pause {
   transition: color 1s;
   color: aqua;
+  cursor: pointer;
 }
 
 .play-pause:hover {
   color: #ff02f2;
 }
+
+.instruct {
+  top: 140px;
+  right: 22px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  color: black;
+  position: absolute;
+  transition: color 0.5s;
+}
+
+.nowPlaying {
+  top: 70px;
+  right: 22px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: aqua;
+  position: absolute;
+  transition: color 0.5s;
+}
+
+.progress-bar-container {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: aqua;
+  display: flex;
+  position: absolute;
+  top: 90px;
+  right: 22px;  
+  vertical-align: middle;
+  opacity: 0;
+}
+
+.progress-bar {
+  height: 16px;
+  width: 300px;
+}
+
+.start {
+  float: left;
+  margin-right: 5px;
+}
+
+.end {
+  float: right;
+  margin-left: 5px;
+}
+
+.progress {
+  background: #ff02f2;
+  float: left;
+  width: 0;
+  height: 16px;
+  border-radius: 5px;
+  transition: width 1s;
+  opacity: .9;
+}
+.progress-left {
+  background: transparent;
+  float: left;
+  width: 100%;
+  height: 16px;
+  transition: width 1s;
+}
+
 
 @import "./reset.scss";

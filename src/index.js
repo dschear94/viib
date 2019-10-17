@@ -47,31 +47,46 @@ window.onload = function () {
         }
     };
 
+    let title;
+
     document.getElementById("file-input").onchange = function () {
         const files = this.files;
-
         if (files.length > 0) {
             currentTrack.src = URL.createObjectURL(files[0]);
             currentTrack.load();
+            title = files[0].name.split(".")[0];
+            document.getElementById("nowPlaying").innerHTML = `now playing: ${title}`;
+            document.getElementById("progress-bar-container").style.opacity = 1;
+            document.getElementById("progress-bar").style.width = document.getElementById("nowPlaying").offsetWidth;
         }
     };
 
     let timeout;
 
-    document.onmousemove = () => {
+    document.onclick = () => {
         if (!currentTrack.paused) {
-            showDisplay();
+            toggleDisplay();
+        } 
+    }
+
+    document.onmouseover = () => {
+        if (!currentTrack.paused) {
+            showNotification();
             clearTimeout(timeout);
-            this.setTimeout(() => hideDisplay(), 5000);
+            timeout = this.setTimeout(() => hideNotification(), 3000);
         }
     }
 
-    document.onclick = () => {
-        if (!currentTrack.paused) {
-            showDisplay();
-            clearTimeout(timeout);
-            this.setTimeout(() => hideDisplay(), 5000);
-        }
+    const showNotification = () => {
+        document.getElementById("instruct").style.color = "aqua";
+    }
+
+    const hideNotification = () => {
+        document.getElementById("instruct").style.color = "black";
+    }
+
+    document.getElementById("modal-over-left").onclick = () => {
+        document.getElementById("file-input").click();
     }
 
     const hideDisplay = () => {
@@ -79,7 +94,6 @@ window.onload = function () {
             document.getElementById("main-title").style.opacity = 0;
             document.getElementById("bottom-bar").style.opacity = 0;
             document.getElementById("play-pause").style.opacity = 0;
-            document.getElementById("file-input-show").style.opacity = 0;
             document.getElementById("modal-over-container").style.opacity = 0;
         }
     }
@@ -88,12 +102,31 @@ window.onload = function () {
         document.getElementById("main-title").style.opacity = "";
         document.getElementById("bottom-bar").style.opacity = "";
         document.getElementById("play-pause").style.opacity = "";
-        document.getElementById("file-input-show").style.opacity = "";
         document.getElementById("modal-over-container").style.opacity = "";
+    }
+
+    let displayStatus;
+
+    const toggleDisplay = () => {
+        if (!currentTrack.paused) {
+            if (displayStatus === "off") {
+                showDisplay();
+                displayStatus = "on";
+            } else {
+                hideDisplay();
+                displayStatus = "off";
+            } 
+        }
+    }
+
+    currentTrack.ontimeupdate = () => {
+        document.getElementById("progress").style.width = `${(currentTrack.currentTime / currentTrack.duration)*100}%`;
+        document.getElementById("progress-left").style.width = `${((currentTrack.duration - currentTrack.currentTime) / currentTrack.duration)*100}%`;
     }
 
     currentTrack.onpause = () => {
         showDisplay();
     }
+
 }
 
