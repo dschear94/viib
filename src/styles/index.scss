@@ -3,20 +3,17 @@
 }
 
 .file-input-show {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  display: block;
-  text-align: center; 
   cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
   transition: opacity 0.5s;
+  margin: auto;
 }
   
 .main-title {
   display: block;
   width: 100%;
   top: 0;
-  background: transparent;
   text-align: center; 
   background: #ff02f2;
   height: 48px;
@@ -25,6 +22,81 @@
   font-size: 48px;
   position: absolute;
   transition: opacity 0.5s;
+}
+  
+.bottom-bar {
+  display: inline-block;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  background: aqua;
+  height: 48px;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  line-height: 48px;
+  position: absolute;
+  transition: opacity 0.5s;
+}
+
+.modal-over-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  bottom: 48px;
+  background: transparent;
+  text-align: center;
+  vertical-align: center;
+  height: 24px;
+  color: black;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  position: absolute;
+  transition: opacity 0.5s;
+}
+
+.modal-over-left {
+  text-align: center;
+  background: #ff02f2;
+  border-radius: 5px;
+  width: 25%;
+  height: 19px;
+  margin: auto;
+  vertical-align: middle;
+  line-height: 12px;
+  transition: width 1s;
+}
+
+.modal-over-left:hover {
+  width: 40%
+}
+
+.modal-over-right {
+  text-align: center;
+  background: #ff02f2;
+  border-radius: 5px;
+  width: 25%;
+  margin: auto;
+  height: 19px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: width 1s;
+}
+
+
+.modal-over-right:hover {
+  width: 40%
+}
+
+.name-link {
+  font-size: 28px;
+  transition: color 1s;
+}
+
+.name-link:hover {
+  cursor: pointer;
+  color: #ff02f2;
 }
 
 .visualizer-selector {
@@ -49,6 +121,12 @@
   width: 100%;
   cursor: pointer;
   transition: opacity 1s;
+  transition: color 1s;
+  color: aqua;
+}
+
+.play-pause:hover {
+  color: #ff02f2;
 }
 
 @import "./reset.scss";

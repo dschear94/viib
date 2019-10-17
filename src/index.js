@@ -17,6 +17,7 @@ window.onload = function () {
         if (currentTrack.paused) {
             currentTrack.play(); 
             document.getElementById("play-pause").innerHTML = "||";
+            document.getElementById("play-pause").color = "ff02f2";
         } else {
             currentTrack.pause();
             document.getElementById("play-pause").innerHTML = ">";
@@ -64,6 +65,7 @@ window.onload = function () {
             this.setTimeout(() => hideDisplay(), 5000);
         }
     }
+
     document.onclick = () => {
         if (!currentTrack.paused) {
             showDisplay();
@@ -75,15 +77,19 @@ window.onload = function () {
     const hideDisplay = () => {
         if (!currentTrack.paused) {
             document.getElementById("main-title").style.opacity = 0;
+            document.getElementById("bottom-bar").style.opacity = 0;
             document.getElementById("play-pause").style.opacity = 0;
             document.getElementById("file-input-show").style.opacity = 0;
+            document.getElementById("modal-over-container").style.opacity = 0;
         }
     }
 
     const showDisplay = () => {
         document.getElementById("main-title").style.opacity = "";
+        document.getElementById("bottom-bar").style.opacity = "";
         document.getElementById("play-pause").style.opacity = "";
         document.getElementById("file-input-show").style.opacity = "";
+        document.getElementById("modal-over-container").style.opacity = "";
     }
 
     currentTrack.onpause = () => {
