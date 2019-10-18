@@ -33,7 +33,7 @@
   height: 32px;
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 32px;
   position: absolute;
   transition: opacity 0.5s;
@@ -65,7 +65,7 @@
   background: transparent;
   text-align: center;
   vertical-align: center;
-  height: 32px;
+  
   color: black;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 24px;
@@ -106,13 +106,82 @@
 }
 
 
+.selection {
+  color: black;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.selection-1 {
+  transition: font-size 0.5s, color 1s;
+}
+
+.selection-1:hover {
+  animation: color-me-in 3s;
+}
+
+@keyframes color-me-in {
+  0% {
+    color: black;
+  }
+
+  20% {
+    color: red;
+  }
+
+  30% {
+    color: orange;
+  }
+
+  40% {
+    color: yellow;
+  }
+
+  50% {
+    color: green;
+  }
+
+  65% {
+    color: blue;
+  }
+
+  80% {
+    color: indigo;
+  }
+
+  90% {
+    color: violet;
+  }
+
+  100% {
+  color: black;
+  }
+
+}
+
+.selection-2 {
+  transition: font-size 0.5s, color 1s;
+}
+
+.selection-1:hover {
+  font-size: 16px;
+}
+
+.selection-2:hover {
+  font-size: 16px;
+}
+
 .modal-over-right:hover {
   width: 40%;
   color: aqua;
 }
 
 .name-link {
-  font-size: 15px;
+  font-size: 12.5px;
   transition: color 1s;
 }
 
@@ -204,6 +273,9 @@
   height: 16px;
   transition: width 1s;
 }
+
+
+
 
 
 @import "./reset.scss";

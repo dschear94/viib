@@ -128,5 +128,41 @@ window.onload = function () {
         showDisplay();
     }
 
+    document.getElementById("modal-over-right").onclick = () => {
+        toggleCustomize();
+        displayStatus = "off";
+    }
+
+    document.getElementById("modal-over-right").onmouseleave = () => {
+        hideCustomize();
+        customizeStatus = "off";
+    }
+
+    let customizeStatus = "off";
+
+    const toggleCustomize = () => {
+        if (customizeStatus === "off") {
+            showCustomize();
+            customizeStatus = "on";
+        } else {
+            hideCustomize();
+            customizeStatus = "off";
+        } 
+    }
+
+    const showCustomize = () => {
+        document.getElementById("modal-over-right").style.height = `200px`;
+        document.getElementById("selection").style.opacity = `1`;
+    }
+
+    const hideCustomize = () => {
+        document.getElementById("modal-over-right").style.height = `24px`;
+        document.getElementById("selection").style.opacity = `0`;
+    }
+
+    document.getElementById("selection-1").onclick = () => {
+        
+    }
+
 }
 
