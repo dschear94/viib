@@ -119,9 +119,22 @@ window.onload = function () {
         }
     }
 
-    currentTrack.ontimeupdate = () => {
-        document.getElementById("progress").style.width = `${(currentTrack.currentTime / currentTrack.duration)*100}%`;
-        document.getElementById("progress-left").style.width = `${((currentTrack.duration - currentTrack.currentTime) / currentTrack.duration)*100}%`;
+    // currentTrack.ontimeupdate = () => {
+    //     document.getElementById("progress").style.width = document.getElementById("progress-handle").style.left
+    //     document.getElementById("progress-handle").style.left = `${(currentTrack.currentTime / currentTrack.duration)*100}%`;
+    //     document.getElementById("progress-left").style.width = `${((currentTrack.duration - currentTrack.currentTime) / currentTrack.duration)*100}%`;
+    // }
+
+    document.getElementById("progress-handle").ondragleave = () => {
+        currentTrack.currentTime = ((parseInt(document.getElementById("progress-left").style.width) / 100) * currentTrack.duration);
+    }
+
+    document.getElementById("progress-handle").ondragstart = () => {
+        document.getElementById("progress").style.width = document.getElementById("progress-handle").style.left;
+    }
+
+    document.getElementById("progress-handle").ondrag = () => {
+        document.getElementById("progress").style.width = document.getElementById("progress-handle").style.left;
     }
 
     currentTrack.onpause = () => {
